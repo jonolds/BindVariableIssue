@@ -1,0 +1,121 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+	compileSdkVersion 29
+	buildToolsVersion '29.0.3'
+
+	ndkVersion "21.3.6528147"
+	buildFeatures{
+//		dataBinding = true
+//		viewBinding = true
+	}
+
+	defaultConfig {
+		applicationId "aaa.cubeup.cube"
+		minSdkVersion 28
+		targetSdkVersion 29
+		versionCode 1
+		versionName "1.0"
+
+		javaCompileOptions {
+			annotationProcessorOptions {
+				arguments = [
+//					"room.schemaLocation":"$projectDir/schemas".toString(),
+					"room.incremental":"true",
+//					"room.expandProjection":"true"
+				]
+			}
+		}
+	}
+
+	task javaHome {
+		println "JAVA_HOME:" + System.getProperty("java.home")
+	}
+	buildTypes {
+		release {
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+	compileOptions {
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
+	}
+	kotlinOptions {
+		jvmTarget = 1.8
+	}
+	sourceSets {
+		main {
+			res {
+				srcDirs 'src/main/res', 'src/main/layouts/main', 'src/main/layouts/panel_left', 'src/main/layouts/panel_center', 'src/main/layouts/panel_right'
+			}
+		}
+	}
+	allprojects {
+		tasks.withType(JavaCompile) {
+//			options.compilerArgs << "-Xlint:deprecation"
+//			options.compilerArgs << "-parameters"
+		}
+	}
+}
+
+dependencies {
+	implementation "androidx.activity:activity-ktx:1.2.0-alpha06"
+	implementation "androidx.annotation:annotation:1.2.0-alpha01"
+	implementation "androidx.appcompat:appcompat:1.3.0-alpha01"
+	implementation 'androidx.core:core-ktx:1.5.0-alpha01'
+	implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta8"
+	implementation 'androidx.databinding:databinding-common:4.2.0-alpha04'
+	implementation 'androidx.fragment:fragment-ktx:1.3.0-alpha06'
+	implementation "androidx.gridlayout:gridlayout:1.0.0"
+	implementation "androidx.recyclerview:recyclerview:1.2.0-alpha04"
+
+	implementation "com.android.volley:volley:1.2.0-SNAPSHOT"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.72"
+
+	implementation 'org.conscrypt:conscrypt-android:2.4.0'
+	implementation fileTree(dir: "libs", include: ["*.jar"])
+
+
+	/* Square libraries */
+	implementation 'com.squareup.okhttp3:okhttp:4.8.0'
+	implementation "com.squareup:square:6.0.0.20200625"
+
+	/* Jackson libraries */
+	def jackson_version = '2.11.1'
+	implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
+	implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
+	implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+
+	/* Navigation components */
+	def navigation_version = '2.3.0'
+	implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+	implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+	/* Room components */
+	def room_version = '2.3.0-alpha01'
+	implementation "androidx.room:room-ktx:$room_version"
+	implementation "androidx.room:room-runtime:$room_version"
+	kapt "androidx.room:room-compiler:$room_version"
+
+
+
+	/* Lifecycle components */
+	def lifecycle_version = '2.3.0-alpha05'
+	implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+	implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:$lifecycle_version"
+	kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+	/* ESPRESSO */
+//	implementation "androidx.test.espresso:espresso-core:3.2.0"
+//	implementation "androidx.test.espresso:espresso-contrib:3.2.0"
+//	implementation "androidx.test.espresso:espresso-intents:3.2.0"
+
+
+	testImplementation 'junit:junit:4.13'
+//	debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
+//	debugImplementation "com.amitshekhar.android:debug-db:1.0.6"
+
+}

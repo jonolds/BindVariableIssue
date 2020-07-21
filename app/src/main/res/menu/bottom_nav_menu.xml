@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:showIn="frag_dashboard">
+
+	<item android:id="@+id/bottom_nav_catalog_buttons"
+		android:icon="@drawable/ic_dashboard_buttons_24dp"
+		android:title="Catalog Buttons" />
+
+</menu>

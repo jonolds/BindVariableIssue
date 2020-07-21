@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="aaa.cubeup.cube.ui.dashboardfrags.ButtonsFrag"
+	tools:showIn="@layout/frag_dashboard"
+	android:id="@+id/recyclerview_button_grid"
+	android:background="@android:color/darker_gray"
+	tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+	tools:listitem="@layout/buttons_element"
+	tools:ignore="Overdraw" />

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+	app:startDestination="@id/bottom_nav_catalog_buttons">
+
+	<fragment android:id="@+id/bottom_nav_catalog_buttons"
+		android:name="aaa.cubeup.cube.ui.dashboardfrags.ButtonsFrag"
+		android:label="Catalog"
+		tools:layout="@layout/frag_buttons" >
+
+
+	</fragment>
+
+
+
+</navigation>
